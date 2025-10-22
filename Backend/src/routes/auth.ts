@@ -38,7 +38,7 @@ router.post("/login", async (req, res)=>{
     const comp = await bcrypt.compare(password, check.password);
     if(!comp) return res.json({message: "Invalid Password"});
 
-    const token = await Jwt.sign({id : check._id}, process.env.JWT_SECRET || "mySecretKey", {expiresIn: "1hr"});
+    const token = await Jwt.sign({id : check._id}, process.env.JWT_SECRET || "//write your own key", {expiresIn: "1hr"});
 
     res.json({message: "Login Successful",token});
 
