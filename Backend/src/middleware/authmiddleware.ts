@@ -13,7 +13,7 @@ export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction)
   if (!token) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = Jwt.verify(token, process.env.JWT_SECRET || "mySecretKey") as { id: string };
+    const decoded = Jwt.verify(token, process.env.JWT_SECRET || "//write your secret key") as { id: string };
     req.userId = decoded.id;
     next();
   } catch (err) {
